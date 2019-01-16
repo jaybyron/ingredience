@@ -1,11 +1,12 @@
 const request = require('request');
 const rp = require('request-promise-native');
 const Clarifai = require('clarifai');
-const KEYS = require('../../private');
+
+
 
 
 const app = new Clarifai.App({
-  apiKey: KEYS.CLARIFAI
+  apiKey: process.env.CLARIFAI_KEY
  });
  
 

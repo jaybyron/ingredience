@@ -1,11 +1,15 @@
 const express = require('express');
+const path = require('path');
+require('dotenv').config();
 const app = express();
 const port = 3000;
 
 const yummilyController = require('./controllers/yummilyController');
-const clarifaiController = require('./controllers/clarifaiController')
+const clarifaiController = require('./controllers/clarifaiController');
 
-app.get('/', (req, res) => res.send('Hello World!'))
+console.log(__dirname);
+
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.get('/test', yummilyController.queryYummily);
 

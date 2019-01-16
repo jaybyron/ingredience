@@ -1,7 +1,5 @@
 const request = require('request');
 const rp = require('request-promise-native');
-const KEYS = require('../../private')
-
 
 const yummilyController = {};
 
@@ -9,12 +7,14 @@ yummilyController.queryYummily = queryYummily;
 
 function queryYummily (req, res, next) {
 
+  console.log(process.env);
+
   let options = {
     uri: 'http://api.yummly.com/v1/api/recipes',
     qs: {
 
-      _app_id: KEYS.APPID,
-      _app_key: KEYS.APIKEY,
+      _app_id: process.env.YUM_ID,
+      _app_key: process.env.YUM_KEY,
       q: 'sweet potatoes onions carrots',
       requirePictures: true,
       maxResult:20
@@ -33,7 +33,7 @@ function queryYummily (req, res, next) {
     res.status(200).json(repos.matches);
   })
   .catch(function (err){
-    res.status(400).send('API call failed');
+    res.status(400).send(err);
   })
 
 }
