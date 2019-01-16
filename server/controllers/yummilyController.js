@@ -15,9 +15,9 @@ function queryYummily (req, res, next) {
 
       _app_id: KEYS.APPID,
       _app_key: KEYS.APIKEY,
-      q: ['beef'],
+      q: 'sweet potatoes onions carrots',
       requirePictures: true,
-      maxResult:5
+      maxResult:20
 
 
     },
@@ -30,7 +30,7 @@ function queryYummily (req, res, next) {
   rp(options)
   .then(function(repos){
     console.log('this is the yummily response: ', repos);
-    res.status(200).json(repos);
+    res.status(200).json(repos.matches);
   })
   .catch(function (err){
     res.status(400).send('API call failed');
