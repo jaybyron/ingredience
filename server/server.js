@@ -9,10 +9,14 @@ const clarifaiController = require('./controllers/clarifaiController');
 
 console.log(__dirname);
 
-app.use(express.static(path.resolve(__dirname, '../dist')));
+const thePath = path.join(__dirname,'../dist/index.html');
+
+//app.get('/', (req, res) => express.static(path.resolve(__dirname, '../dist')))
 
 app.get('/test', yummilyController.queryYummily);
 
 app.get('/analyze',clarifaiController.predictImage);
+
+app.use(express.static(path.resolve(__dirname, '../dist')));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
