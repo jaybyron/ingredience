@@ -7,7 +7,8 @@ yummilyController.queryYummily = queryYummily;
 
 function queryYummily (req, res, next) {
 
-  console.log(process.env);
+  console.log('we hit the yummily query')
+  console.log('query paramaters: ',typeof req.query.query);
 
   let options = {
     uri: 'http://api.yummly.com/v1/api/recipes',
@@ -15,9 +16,9 @@ function queryYummily (req, res, next) {
 
       _app_id: process.env.YUM_ID,
       _app_key: process.env.YUM_KEY,
-      q: 'sweet potatoes onions carrots',
+      q: req.query.query,
       requirePictures: true,
-      maxResult:20
+      maxResult:30
 
 
     },
@@ -29,7 +30,7 @@ function queryYummily (req, res, next) {
 
   rp(options)
   .then(function(repos){
-    console.log('this is the yummily response: ', repos);
+    //console.log('this is the yummily response: ', repos);
     res.status(200).json(repos.matches);
   })
   .catch(function (err){

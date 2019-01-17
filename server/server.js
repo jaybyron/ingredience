@@ -13,9 +13,11 @@ const thePath = path.join(__dirname,'../dist/index.html');
 
 //app.get('/', (req, res) => express.static(path.resolve(__dirname, '../dist')))
 
+app.get('/analyze/', yummilyController.queryYummily);
+
 app.get('/test', yummilyController.queryYummily);
 
-app.get('/analyze',clarifaiController.predictImage);
+//app.get('/analyze/',clarifaiController.predictImage);
 
 app.use(express.static(path.resolve(__dirname, '../dist')));
 

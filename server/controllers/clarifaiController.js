@@ -18,7 +18,7 @@ const app = new Clarifai.App({
 
     app.models.predict("bd367be194cf45149e75f01d59f77ba7", "https://i.imgur.com/Opg2j5c.jpg").then(
       function(response) {
-        console.log('this is the yummily response: ', response);
+        console.log('this is the clarifai response: ', response);
         res.status(200).json(response);
       },
       function(err) {
