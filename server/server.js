@@ -11,11 +11,17 @@ console.log(__dirname);
 
 const thePath = path.join(__dirname,'../dist/index.html');
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
 //app.get('/', (req, res) => express.static(path.resolve(__dirname, '../dist')))
 
 app.get('/analyze/', yummilyController.queryYummily);
 
-app.get('/test', yummilyController.queryYummily);
+app.get('/test', clarifaiController.predictImage);
 
 //app.get('/analyze/',clarifaiController.predictImage);
 

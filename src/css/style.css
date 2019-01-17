@@ -1,0 +1,51 @@
+
+.recipe img{
+
+  float: left;
+  
+}
+
+.recipe {
+
+  border-bottom: 2px solid black;
+
+}
+
+body{
+
+}
+
+h1{
+  color:black;
+}
+
+
+#main-app{
+
+  display:flex;
+  width:50%;
+  margin: 0 auto;
+  overflow:hidden;
+}
+
+#sidebar{
+	order: 1;
+	flex: 1;
+	background-color: red;
+  flex-basis: auto;
+  padding: .5rem;
+  min-height: 80vh;
+  border: 5px solid black;
+
+
+}
+
+#mainbar{
+	order: 1;
+	flex: 8;
+  background-color:white;
+  height:80vh;
+  padding: .5rem;
+  border: 5px solid black;
+  overflow-y: scroll;
+}

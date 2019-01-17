@@ -1,0 +1,30 @@
+
+.recipe img{
+
+  float: left;
+  
+}
+
+.recipe {
+  background-color:red;
+}
+
+body{
+  background-color:purple;
+}
+
+h1{
+  color:red;
+}
+
+#sidebar{
+  width:20%;
+  height:auto;
+  background-color:yellow;
+}
+
+#mainbar{
+  width:80%;
+  height:auto;
+  background-color:green;
+}
